@@ -1,7 +1,4 @@
-/**
- * Product Database
- * Contains all product data with images, prices, ratings, and categories
- */
+
 
 const PRODUCTS = [
   {
@@ -118,12 +115,7 @@ const PRODUCTS = [
  * Get all products
  */
 function getAllProducts() {
-  return PRODUCTS;
-}
 
-/**
- * Get unique categories
- */
 function getCategories() {
   return [...new Set(PRODUCTS.map(p => p.category))].sort();
 }
@@ -135,24 +127,18 @@ function getProductById(id) {
   return PRODUCTS.find(p => p.id === parseInt(id));
 }
 
-/**
- * Filter products by category
- */
+
 function filterByCategory(category) {
   if (category === 'all') return PRODUCTS;
   return PRODUCTS.filter(p => p.category === category);
 }
 
-/**
- * Filter products by price range
- */
+
 function filterByPrice(minPrice, maxPrice) {
   return PRODUCTS.filter(p => p.price >= minPrice && p.price <= maxPrice);
 }
 
-/**
- * Search products by name or description
- */
+
 function searchProducts(query) {
   const searchTerm = query.toLowerCase();
   return PRODUCTS.filter(p =>
